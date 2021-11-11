@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MoneyHandler : MonoBehaviour
 {
+    [SerializeField]
     int money;
     [SerializeField]
     Text moneyTxt;
@@ -18,6 +19,21 @@ public class MoneyHandler : MonoBehaviour
     public void AddMoney()
     {
         money++;
+        DisplayMoney();
+    }
+
+    public void DeductMoney(int _amount)
+    {
+        if (money - _amount < 0)
+        {
+            return;
+        }
+        money -= _amount;
+        DisableButton DB = GameObject.FindObjectOfType<DisableButton>();
+        if (DB != null)
+        {
+            DB.DisableThisButton();
+        }
         DisplayMoney();
     }
 

@@ -21,7 +21,11 @@ public class StartParticle : MonoBehaviour
     public int MaxAmmo
     {
         get { return maxAmmo; }
-        set { maxAmmo = value; }
+        set
+        {
+            maxAmmo = value;
+            ammoTxt.text = $"{ammo}/{maxAmmo}";
+        }
     }
     public int Ammo
     {
@@ -40,5 +44,15 @@ public class StartParticle : MonoBehaviour
             PS.Play();
             ammo--;
         }
+    }
+
+    public void StealWater(int _amount)
+    {
+        int temp = ammo;
+        if ((temp -= _amount) < 0)
+        {
+            return;
+        }
+        ammo -= _amount;
     }
 }
