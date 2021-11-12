@@ -16,6 +16,9 @@ public class MoneyHandler : MonoBehaviour
     [SerializeField]
     StartParticle SP;
 
+    [SerializeField]
+    GoggleManager GM;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,20 @@ public class MoneyHandler : MonoBehaviour
     public void AddMoney()
     {
         money += 1;
+        DisplayMoney();
+    }
+
+    public void BossMoneyVision(int _amount)
+    {
+        if (money - _amount < 0)
+        {
+            return;
+        }
+        money -= _amount;
+        if (GM != null)
+        {
+            GM.ActicateGoggles();
+        }
         DisplayMoney();
     }
 

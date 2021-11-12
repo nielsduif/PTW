@@ -9,6 +9,7 @@ public class BirdTrigger : MonoBehaviour
     [SerializeField]
     GameObject player;
     StartParticle SP;
+    [SerializeField]
 
     // Start is called before the first frame update
     void Start()
