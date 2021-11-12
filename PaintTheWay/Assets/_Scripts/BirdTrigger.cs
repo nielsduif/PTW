@@ -20,7 +20,7 @@ public class BirdTrigger : MonoBehaviour
     {
         if(other.gameObject == player)
         {
-            SP.StealWater(SP.Ammo);
+            SP.BirdWaterHit(SP.Ammo);
         }
     }
 }

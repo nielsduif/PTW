@@ -64,4 +64,14 @@ public class StartParticle : MonoBehaviour
             GM.ActicateGoggles();
         }
     }
+
+    public void BirdWaterHit(int _amount)
+    {
+        int temp = ammo;
+        if ((temp -= _amount) < 0)
+        {
+            return;
+        }
+        ammo -= _amount;
+    }
 }
