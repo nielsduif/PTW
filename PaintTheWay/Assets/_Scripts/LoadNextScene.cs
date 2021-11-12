@@ -11,6 +11,8 @@ public class LoadNextScene : MonoBehaviour
     MoneyHandler MH;
     [SerializeField]
     StartParticle SP;
+    [SerializeField]
+    bool bucket;
 
     private void OnTriggerEnter(Collider other)
     {
