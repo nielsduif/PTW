@@ -23,7 +23,7 @@ public class LilyCheck : MonoBehaviour
     {
         if (ready)
         {
-            rock.transform.position = Vector3.MoveTowards(rock.transform.position, rockPosition.position, .1f * Time.deltaTime);
+            rock.transform.position = Vector3.MoveTowards(rock.transform.position, rockPosition.position, .5f * Time.deltaTime);
         }
     }
 

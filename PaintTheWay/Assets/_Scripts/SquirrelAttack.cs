@@ -5,17 +5,13 @@ using UnityEngine;
 public class SquirrelAttack : MonoBehaviour
 {
     [SerializeField]
-    GameObject player;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    GameObject player, bullet;
+    [SerializeField]
+    Transform shootPoint;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(player.transform.position);
     }
 }

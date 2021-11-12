@@ -39,6 +39,22 @@ public class StartParticle : MonoBehaviour
     Button G;
     [SerializeField]
     GoggleManager GM;
+    [SerializeField]
+    bool firstRun;
+
+    private void Start()
+    {
+        if (firstRun)
+        {
+            PlayerPrefs.SetInt("Ammo", Ammo);
+            PlayerPrefs.SetInt("MaxAmmo", MaxAmmo);
+        }
+        else
+        {
+            Ammo = PlayerPrefs.GetInt("Ammo");
+            MaxAmmo = PlayerPrefs.GetInt("MaxAmmo");
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -73,5 +89,11 @@ public class StartParticle : MonoBehaviour
             return;
         }
         ammo -= _amount;
+    }
+
+    public void StoreAmmo()
+    {
+        PlayerPrefs.SetInt("Ammo", Ammo);
+        PlayerPrefs.SetInt("MaxAmmo", MaxAmmo);
     }
 }

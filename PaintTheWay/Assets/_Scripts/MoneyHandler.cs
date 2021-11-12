@@ -11,16 +11,28 @@ public class MoneyHandler : MonoBehaviour
     Text moneyTxt;
     [SerializeField]
     Button A;
+    [SerializeField]
+    bool firstRun;
+    [SerializeField]
+    StartParticle SP;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (firstRun)
+        {
+            PlayerPrefs.SetInt("Money", 0);
+        }
+        else
+        {
+            money = PlayerPrefs.GetInt("Money");
+        }
         DisplayMoney();
     }
 
     public void AddMoney()
     {
-        money++;
+        money += 1;
         DisplayMoney();
     }
 
@@ -31,6 +43,10 @@ public class MoneyHandler : MonoBehaviour
             return;
         }
         money -= _amount;
+        if (SP != null)
+        {
+            SP.MaxAmmo = 5;
+        }
         if (A != null)
         {
             A.interactable = false; ;
@@ -41,5 +57,10 @@ public class MoneyHandler : MonoBehaviour
     void DisplayMoney()
     {
         moneyTxt.text = $"€{money}";
+    }
+
+    public void StoreMoney()
+    {
+        PlayerPrefs.SetInt("Money", money);
     }
 }
