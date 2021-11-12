@@ -35,6 +35,11 @@ public class StartParticle : MonoBehaviour
     [SerializeField]
     Text ammoTxt;
 
+    [SerializeField]
+    Button G;
+    [SerializeField]
+    GoggleManager GM;
+
     // Update is called once per frame
     void Update()
     {
@@ -54,5 +59,9 @@ public class StartParticle : MonoBehaviour
             return;
         }
         ammo -= _amount;
+        if (GM != null)
+        {
+            GM.ActicateGoggles();
+        }
     }
 }

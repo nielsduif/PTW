@@ -9,6 +9,8 @@ public class MoneyHandler : MonoBehaviour
     int money;
     [SerializeField]
     Text moneyTxt;
+    [SerializeField]
+    Button A;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +31,9 @@ public class MoneyHandler : MonoBehaviour
             return;
         }
         money -= _amount;
-        DisableButton DB = GameObject.FindObjectOfType<DisableButton>();
-        if (DB != null)
+        if (A != null)
         {
-            DB.DisableThisButton();
+            A.interactable = false; ;
         }
         DisplayMoney();
     }
